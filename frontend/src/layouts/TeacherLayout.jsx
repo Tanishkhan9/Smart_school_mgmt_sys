@@ -34,7 +34,7 @@ export default function TeacherLayout() {
           </div>
           <div>
             <div className="font-display font-bold text-lg tracking-tight text-white">
-              SmartSchool
+              Alpha Learning Zone
             </div>
             <div className="text-[10px] font-bold tracking-wider uppercase text-emerald-400">
               Faculty Portal

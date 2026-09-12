@@ -23,6 +23,18 @@ exports.register = asyncHandler(async (req, res) => {
     error.statusCode = 400;
     throw error;
   }
+  if (password.length < 6) {
+    const error = new Error('Password must be at least 6 characters');
+    error.statusCode = 400;
+    throw error;
+  }
+
+  const existing = await User.findOne({ email: email.toLowerCase().trim() });
+  if (existing) {
+    const error = new Error('An account with this email already exists');
+    error.statusCode = 400;
+    throw error;
+  }
 
   const allowedRole = req.user?.role === 'admin' ? role || 'student' : 'student';
   if (!['admin', 'teacher', 'student'].includes(allowedRole)) {
@@ -36,11 +48,28 @@ exports.register = asyncHandler(async (req, res) => {
     throw error;
   }
 
-  const user = await User.create({ name, email, password, role: allowedRole });
+  const user = await User.create({
+    name: name.trim(),
+    email: email.toLowerCase().trim(),
+    password,
+    role: allowedRole,
+    lastLogin: new Date(),
+  });
+
+  if (allowedRole === 'student') {
+    const count = await Student.countDocuments();
+    await Student.create({
+      userId: user._id,
+      studentId: `ALZ${String(count + 1).padStart(4, '0')}`,
+      name: user.name,
+      email: user.email,
+    });
+  }
+
   const token = generateToken(user);
   sendSuccess(res, {
     statusCode: 201,
-    message: 'Account created',
+    message: 'Account created successfully',
     data: { user: await attachProfile(user), token },
   });
 });
@@ -53,9 +82,9 @@ exports.login = asyncHandler(async (req, res) => {
     throw error;
   }
 
-  const user = await User.findOne({ email }).select('+password');
+  const user = await User.findOne({ email: email.toLowerCase().trim() }).select('+password');
   if (!user || !(await user.matchPassword(password))) {
-    const error = new Error('Invalid credentials');
+    const error = new Error('Invalid email or password');
     error.statusCode = 401;
     throw error;
   }
@@ -65,10 +94,13 @@ exports.login = asyncHandler(async (req, res) => {
     throw error;
   }
 
+  user.lastLogin = new Date();
+  await user.save();
+
   const token = generateToken(user);
   user.password = undefined;
   sendSuccess(res, {
-    message: 'Logged in',
+    message: 'Logged in successfully',
     data: { user: await attachProfile(user), token },
   });
 });

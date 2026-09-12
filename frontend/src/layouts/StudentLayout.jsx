@@ -35,7 +35,7 @@ export default function StudentLayout() {
           </div>
           <div>
             <div className="font-display font-bold text-lg tracking-tight text-white">
-              SmartSchool
+              Alpha Learning Zone
             </div>
             <div className="text-[10px] font-bold tracking-wider uppercase text-amber-400">
               Student Portal

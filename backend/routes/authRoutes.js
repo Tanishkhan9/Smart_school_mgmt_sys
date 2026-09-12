@@ -12,7 +12,7 @@ const loginLimiter = rateLimit({
   message: { success: false, message: 'Too many login attempts. Try again later.' },
 });
 
-router.post('/register', protect, authorize('admin'), auth.register);
+router.post('/register', auth.register);
 router.post('/login', loginLimiter, auth.login);
 router.post('/logout', auth.logout);
 router.get('/me', protect, auth.me);

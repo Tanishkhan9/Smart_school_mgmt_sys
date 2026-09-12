@@ -22,6 +22,12 @@ export const AuthProvider = ({ children }) => {
     return data.data.user;
   };
 
+  const register = async (name, email, password) => {
+    const { data } = await api.post('/auth/register', { name, email, password });
+    persist(data.data.user, data.data.token);
+    return data.data.user;
+  };
+
   const logout = async () => {
     try {
       await api.post('/auth/logout');
@@ -50,7 +56,7 @@ export const AuthProvider = ({ children }) => {
       .finally(() => setLoading(false));
   }, []);
 
-  const value = useMemo(() => ({ user, loading, login, logout }), [user, loading]);
+  const value = useMemo(() => ({ user, loading, login, register, logout }), [user, loading]);
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

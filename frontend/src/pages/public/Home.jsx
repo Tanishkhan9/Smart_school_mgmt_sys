@@ -18,6 +18,7 @@ import {
   MapPin,
   Send,
   Clock,
+  Users,
 } from 'lucide-react';
 import Button from '../../components/Button';
 import Card from '../../components/Card';
@@ -223,8 +224,8 @@ export default function Home() {
             </h1>
 
             <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-              SmartSchool combines world-class academic standards with holistic character building,
-              modern STEM innovation, and a vibrant community of passionate educators.
+              Alpha Learning Zone combines conceptual academic excellence with personal mentorship,
+              modern STEM education, and character building in Nikhrail, Dagarua, Purnea.
             </p>
 
             {/* CTAs */}
@@ -248,20 +249,74 @@ export default function Home() {
           {/* Stats Bar */}
           <div className="mt-16 sm:mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur text-center hover:bg-white/10 transition-colors">
-              <div className="text-3xl sm:text-4xl font-extrabold text-white">25+</div>
+              <div className="text-3xl sm:text-4xl font-extrabold text-white">10+</div>
               <div className="text-xs sm:text-sm text-indigo-300 font-medium mt-1">Years of Legacy</div>
             </div>
             <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur text-center hover:bg-white/10 transition-colors">
-              <div className="text-3xl sm:text-4xl font-extrabold text-white">2,500+</div>
+              <div className="text-3xl sm:text-4xl font-extrabold text-white">1,500+</div>
               <div className="text-xs sm:text-sm text-indigo-300 font-medium mt-1">Active Students</div>
             </div>
             <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur text-center hover:bg-white/10 transition-colors">
-              <div className="text-3xl sm:text-4xl font-extrabold text-white">150+</div>
-              <div className="text-xs sm:text-sm text-indigo-300 font-medium mt-1">Expert Faculty</div>
+              <div className="text-3xl sm:text-4xl font-extrabold text-white">60+</div>
+              <div className="text-xs sm:text-sm text-indigo-300 font-medium mt-1">Dedicated Faculty</div>
             </div>
             <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur text-center hover:bg-white/10 transition-colors">
-              <div className="text-3xl sm:text-4xl font-extrabold text-white">99.4%</div>
-              <div className="text-xs sm:text-sm text-indigo-300 font-medium mt-1">Board Distinction</div>
+              <div className="text-3xl sm:text-4xl font-extrabold text-white">99%</div>
+              <div className="text-xs sm:text-sm text-indigo-300 font-medium mt-1">Board Pass Rate</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FOUNDERS & LEADERSHIP SECTION */}
+      <section id="leadership" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+        <div className="rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 p-8 sm:p-12 text-white border border-indigo-500/20 shadow-xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-5 space-y-4">
+              <span className="px-3.5 py-1 rounded-full bg-indigo-500/20 text-indigo-300 text-xs font-bold uppercase tracking-wider border border-indigo-400/30 inline-flex items-center gap-1.5">
+                <Users className="w-3.5 h-3.5 text-indigo-400" />
+                Visionary Leadership
+              </span>
+              <h2 className="font-display text-3xl sm:text-4xl font-bold text-white leading-tight">
+                Founded by Passionate Educators
+              </h2>
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                Alpha Learning Zone was established with a singular mission: to bring quality modern education, conceptual mastery, and holistic development to students in Nikhrail, Dagarua, and across the Purnea district.
+              </p>
+              <div className="flex items-center gap-2 text-xs text-indigo-300 font-semibold pt-1">
+                <MapPin className="w-4 h-4 text-indigo-400 shrink-0" />
+                <span>Nikhrail, Dagarua, Purnea, Bihar</span>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Co-founder 1: Mr Mobin */}
+              <div className="p-6 rounded-2xl bg-white/10 border border-white/15 backdrop-blur hover:bg-white/15 transition-all">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-indigo-500 to-violet-500 flex items-center justify-center text-white text-lg font-bold mb-4 shadow-md shadow-indigo-500/30">
+                  M
+                </div>
+                <h3 className="text-xl font-bold text-white">Mr. Mobin</h3>
+                <div className="text-xs font-semibold text-indigo-300 uppercase tracking-wider mt-0.5">
+                  Co-Founder & Director
+                </div>
+                <p className="text-xs text-slate-300 mt-3 leading-relaxed">
+                  Dedicated to conceptual academic foundations, institutional discipline, and empowering every student with modern educational tools.
+                </p>
+              </div>
+
+              {/* Co-founder 2: Mr Gautam */}
+              <div className="p-6 rounded-2xl bg-white/10 border border-white/15 backdrop-blur hover:bg-white/15 transition-all">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-500 flex items-center justify-center text-white text-lg font-bold mb-4 shadow-md shadow-emerald-500/30">
+                  G
+                </div>
+                <h3 className="text-xl font-bold text-white">Mr. Gautam</h3>
+                <div className="text-xs font-semibold text-emerald-300 uppercase tracking-wider mt-0.5">
+                  Co-Founder & Academic Lead
+                </div>
+                <p className="text-xs text-slate-300 mt-3 leading-relaxed">
+                  Pioneering student-centered learning methodologies, competitive examination guidance, and mentorship to nurture tomorrow’s leaders.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -727,7 +782,7 @@ export default function Home() {
                 <div>
                   <h4 className="text-sm font-bold text-slate-900">Campus Location</h4>
                   <p className="text-xs text-slate-600 mt-0.5">
-                    14 Knowledge Park Boulevard, Pune, Maharashtra 411001
+                    Nikhrail, Dagarua, Purnea, Bihar
                   </p>
                 </div>
               </div>
@@ -739,7 +794,7 @@ export default function Home() {
                 <div>
                   <h4 className="text-sm font-bold text-slate-900">Visiting Hours</h4>
                   <p className="text-xs text-slate-600 mt-0.5">
-                    Monday to Friday: 8:30 AM – 4:00 PM | Saturday: 9:00 AM – 1:00 PM
+                    Monday to Saturday: 8:00 AM – 3:30 PM
                   </p>
                 </div>
               </div>
@@ -751,7 +806,7 @@ export default function Home() {
                 <div>
                   <h4 className="text-sm font-bold text-slate-900">Direct Lines</h4>
                   <p className="text-xs text-slate-600 mt-0.5">
-                    Admissions: +91 20 4912 3400 | Office: +91 20 4912 3401
+                    Admissions: +91 98012 34567 | Office: +91 98012 34568
                   </p>
                 </div>
               </div>

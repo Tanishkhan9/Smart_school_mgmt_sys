@@ -37,10 +37,10 @@ export default function Navbar() {
             </div>
             <div>
               <div className="font-display font-bold text-xl tracking-tight text-slate-900 group-hover:text-indigo-600 transition-colors">
-                SmartSchool
+                Alpha Learning Zone
               </div>
               <div className="text-[11px] font-semibold tracking-wider uppercase text-indigo-600">
-                Academy of Excellence
+                Nikhrail, Dagarua, Purnea
               </div>
             </div>
           </Link>

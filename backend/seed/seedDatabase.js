@@ -44,6 +44,13 @@ const seed = async () => {
     role: 'admin',
   });
 
+  const adminAlpha = await User.create({
+    name: 'Mr. Mobin & Mr. Gautam',
+    email: 'admin@alphalearningzone.com',
+    password,
+    role: 'admin',
+  });
+
   const teacherUser = await User.create({
     name: 'Daniel Okonkwo',
     email: 'teacher@smartschool.test',
